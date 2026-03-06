@@ -1,9 +1,25 @@
+# 02/2026
+# From Anna // Defining paths for argument on farm
+args <- commandArgs(trailingOnly = TRUE)
+
+#assign input files to specific variables // adjusting line 6-7 ;) and 21-23
+at_combined_file <- args[1]		# Counts file (.csv)
+output_dir <- args[2]     # Output directory
+
+# Ensure output directory ends with a slash (for safe concatenation)
+if (!grepl("/$", output_dir)) {
+	output_dir <- paste0(output_dir, "/")
+}
+
 # bringing packages into environment so we can call them
 library(tidyr)
 library(dplyr)
 library(glmmTMB)
 library(car)
 library(emmeans)
+
+#load count file for arabidopsis
+message("Loading BotrytisCombinedProtein file: ", at_combined_file)
 
 #opening and now referring to Dan's proteomic dataset as df; spreadsheet should be in environment (right side) as 'df'.
 df <- read.csv(file = "Botrytis_combined_protein.tsv.xlsx - combined_protein.csv")
