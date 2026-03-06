@@ -22,7 +22,8 @@ library(emmeans)
 message("Loading BotrytisCombinedProtein file: ", at_combined_file)
 
 #opening and now referring to Dan's proteomic dataset as df; spreadsheet should be in environment (right side) as 'df'.
-df <- read.csv(file = "Botrytis_combined_protein.tsv.xlsx - combined_protein.csv")
+#at_combined_file vs hardcoding file path; we want to use the argument for the file path instead of hardcoding it in. we can run the script on farm with different files without changing the code
+df <- read.csv(file = at_combined_file)
 
 #selecting all data when organism col. is equal to Botroytinia... 
 df <- df %>% filter(Organism == "Botryotinia fuckeliana (strain B05.10)")

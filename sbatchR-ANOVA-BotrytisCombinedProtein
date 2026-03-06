@@ -1,22 +1,17 @@
 #!/bin/bash
-#SBATCH --job-name=lesionTrainGPU
-#SBATCH --output=lesionTrainGPU_%j.out
-#SBATCH --error=lesionTrainGPU_%j.err
+#SBATCH --job-name=botrytis_anova
+#SBATCH --output=~/kliebengrp/botrytis_anova/output/botrytis_%j.out
+#SBATCH --error=~/kliebengrp/botrytis_anova/output/botrytis_%j.err
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=ccdepeel@ucdavis.edu
 #SBATCH --account=publicgrp
-#SBATCH --partition=gpul
-#SBATCH --gres=gpu:1
-#SBATCH --time=1-00:00:00
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=64G
+#SBATCH --partition=low
+#SBATCH --time=1:00:00
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=16G
 
 module load R
 
-# Define input file paths
-COUNTS_FILE1=$1
-OUTPUT_DIR=$2
-
-Rscript ~/r-ANOVA-botrytiscombinedprotein/ANOVAtest_v2.R \
-"$COUNTS_FILE1" \
-"$OUTPUT_DIR"
+Rscript ~/kliebengrp/botrytis_anova/r-ANOVA-botrytiscombinedprotein/ANOVAtest_v2.R \
+  ~/kliebengrp/botrytis_anova/data/"Botrytis_combined_protein.tsv.xlsx - combined_protein.csv" \
+  ~/kliebengrp/botrytis_anova/output/
