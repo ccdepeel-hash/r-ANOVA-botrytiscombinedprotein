@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=botrytis_anova
-#SBATCH --output=~/kliebengrp/botrytis_anova/output/botrytis_%j.out
-#SBATCH --error=~/kliebengrp/botrytis_anova/output/botrytis_%j.err
+#SBATCH --output=/home/ccdepeel/kliebengrp/botrytis_anova/output/botrytis_%j.out
+#SBATCH --error=/home/ccdepeel/kliebengrp/botrytis_anova/output/botrytis_%j.err
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=ccdepeel@ucdavis.edu
 #SBATCH --account=publicgrp
@@ -11,7 +11,6 @@
 #SBATCH --mem=16G
 
 module load R
-
-Rscript ~/kliebengrp/botrytis_anova/r-ANOVA-botrytiscombinedprotein/ANOVAtest_v2.R \
-  ~/kliebengrp/botrytis_anova/data/"Botrytis_combined_protein.tsv.xlsx - combined_protein.csv" \
-  ~/kliebengrp/botrytis_anova/output/
+Rscript /home/ccdepeel/kliebengrp/botrytis_anova/r-ANOVA-botrytiscombinedprotein/ANOVAtest_v2.R \
+  /home/ccdepeel/kliebengrp/botrytis_anova/data/"Botrytis_combined_protein.tsv.xlsx - combined_protein.csv" \
+  /home/ccdepeel/kliebengrp/botrytis_anova/output/
