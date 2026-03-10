@@ -6,9 +6,9 @@
 #SBATCH --mail-user=ccdepeel@ucdavis.edu
 #SBATCH --account=publicgrp
 #SBATCH --partition=low
-#SBATCH --time=1:00:00
+#SBATCH --time=8:00:00
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=16G
+#SBATCH --mem=32G
 
 module load R
 Rscript /home/ccdepeel/r-ANOVA-botrytiscombinedprotein/ANOVAtest_v2.R \

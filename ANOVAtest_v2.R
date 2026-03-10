@@ -64,8 +64,8 @@ anova_results <- data.frame(
 )
 
 #subset for testing the loop; for loop will run as many times as we tell it to run
-# below; protein_columns is whole column.. we are just going to do first five for now. setting that column name to equal only first 5 rows
-protein_columns <- protein_columns[1:10]
+# below; protein_columns is whole column.. we are just going to do first 10 for now. (TEST PASS) setting that column name to equal only first 5 rows
+## protein_columns <- protein_columns[1:10]
 
 for(protein in protein_columns) {
   
@@ -125,7 +125,11 @@ convergence_summary <- anova_results %>%
   group_by(Convergence.Note) %>%
   summarise(count = n())
 
-# Bar chart
+write.csv(anova_results, file = paste0(output_dir, "anova_results.csv"), row.names = TRUE)
+write.csv(emm_log, file = paste0(output_dir, "emm_log.csv"), row.names = TRUE)
+write.csv(emm_resp, file = paste0(output_dir, "emm_resp.csv"), row.names = TRUE)
+
+## vv bar chart vv
 # library(ggplot2)
 # ggplot(convergence_summary, aes(x = Convergence.Note, y = count)) +
   # geom_bar(stat = "identity") +
