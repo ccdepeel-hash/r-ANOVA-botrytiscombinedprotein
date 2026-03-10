@@ -11,6 +11,4 @@
 #SBATCH --mem=16G
 
 module load R
-Rscript /home/ccdepeel/kliebengrp/botrytis_anova/r-ANOVA-botrytiscombinedprotein/ANOVAtest_v2.R \
-  /home/ccdepeel/kliebengrp/botrytis_anova/data/"Botrytis_combined_protein.tsv.xlsx - combined_protein.csv" \
-  /home/ccdepeel/kliebengrp/botrytis_anova/output/
+Rscript /home/ccdepeel/r-ANOVA-botrytiscombinedprotein/ANOVAtest_v2.R \
