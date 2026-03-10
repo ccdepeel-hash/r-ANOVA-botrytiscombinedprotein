@@ -119,16 +119,17 @@ emm_resp <- emmeans(model, ~ Genotype, type = "response") %>%
 # rownames(anova_corrected) <- NULL
 
 # bar chart stuff
+
 # Count how many proteins had convergence issues
 convergence_summary <- anova_results %>%
   group_by(Convergence.Note) %>%
   summarise(count = n())
 
-Bar chart
-library(ggplot2)
-ggplot(convergence_summary, aes(x = Convergence.Note, y = count)) +
-  geom_bar(stat = "identity") +
-  labs(title = "Model Convergence Status",
-       x = "Convergence Message",
-       y = "Number of Proteins") +
-   theme_minimal()
+# Bar chart
+# library(ggplot2)
+# ggplot(convergence_summary, aes(x = Convergence.Note, y = count)) +
+  # geom_bar(stat = "identity") +
+  # labs(title = "Model Convergence Status",
+       # x = "Convergence Message",
+       # y = "Number of Proteins") +
+   # theme_minimal()
